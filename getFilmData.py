@@ -1,11 +1,8 @@
 
 import requests
 from bs4 import BeautifulSoup
-import time
 
 def getFilmData(search_query):
-    t0 = time.perf_counter()
-
     film_dict = {}
 
     if search_query[0] != '/':
@@ -122,9 +119,6 @@ def getFilmData(search_query):
         music_string += ', ' * (i > 0) + composer.text.strip()
         music.append(composer.text.strip())
     film_dict['music'] = music
-
-    # t2 = time.perf_counter()
-    # print('code time:', t2 - t0)
 
     return film_dict
 
